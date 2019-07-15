@@ -1,0 +1,14 @@
+.diagram-card {
+  width: 15rem;
+  height: 18rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.diagram-card:hover {
+  transform: scale(1.1);
+}
+
+.diagram {
+  width: 100%;
+  height: 100%;
+}

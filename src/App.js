@@ -6,7 +6,7 @@ function App() {
   return (
     <div className='App'>
       <div className='container'>
-        <div class='cards'>
+        <div className='cards'>
           <ChordDiagram />
           <ChordDiagram />
           <ChordDiagram />

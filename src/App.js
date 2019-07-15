@@ -1,27 +1,11 @@
 import React from 'react';
-import ChordDiagram from './components/chordDiagram';
+import Main from './views/main';
 import './App.css';
 
 function App() {
   return (
     <div className='App'>
-      <div className='container'>
-        <div className='cards'>
-          <ChordDiagram />
-          <ChordDiagram />
-          <ChordDiagram />
-          <ChordDiagram />
-          <ChordDiagram />
-          <ChordDiagram />
-          <ChordDiagram />
-          <ChordDiagram />
-          <ChordDiagram />
-          <ChordDiagram />
-          <ChordDiagram />
-          <ChordDiagram />
-          <ChordDiagram />
-        </div>
-      </div>
+      <Main />
     </div>
   );
 }

@@ -16,6 +16,12 @@
   height: 100%;
 }
 
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .search {
   width: 15rem;
   font-size: 1.25rem;

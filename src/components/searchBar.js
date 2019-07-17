@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
-import { parseChord } from 'chord-symbol';
+import React from 'react';
+import { getSuggestions } from '../libs/chords';
 
 const SearchBar = () => {
-  const [searchText, setSearchText] = useState('');
-  const [chordData, setChordData] = useState(null);
 
   const onChange = e => {
-    setSearchText(e.target.value);
-    setChordData(parseChord(searchText));
+    console.log(getSuggestions(e.target.value));
   };
 
   const onEnter = () => {
-    console.log(chordData);
+    // console.log(chordData.normalized);
   };
 
   const onKeyDown = e => {
@@ -22,7 +19,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className='d-flex justify-content-center mb-4'>
+    <div className='d-flex justify-content-center my-3'>
       <input
         type='text'
         className='form-control search'

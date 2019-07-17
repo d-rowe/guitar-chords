@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import { parseChord } from 'chord-symbol';
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState('');
+  const [chordData, setChordData] = useState(null);
 
   const onChange = e => {
     setSearchText(e.target.value);
+    setChordData(parseChord(searchText));
   };
 
   const onEnter = () => {
-    console.log(searchText);
+    console.log(chordData);
   };
 
   const onKeyDown = e => {

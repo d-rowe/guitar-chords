@@ -117,7 +117,7 @@ const Main = () => {
   ];
   
   return (
-    <div className='container'>
+    <div>
       <SearchBar />
       <ChordDeck chords={chords} />
     </div>

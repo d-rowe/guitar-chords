@@ -7,9 +7,9 @@
   transition: all 0.15s ease-in-out;
 }
 
-.diagram-card:hover {
+/* .diagram-card:hover {
   transform: scale(1.1);
-}
+} */
 
 .diagram {
   width: 100%;

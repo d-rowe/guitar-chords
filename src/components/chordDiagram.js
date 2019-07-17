@@ -15,7 +15,7 @@ class ChordDiagram extends React.Component {
     draw(this.refs.diagram, this.props.chord, {
       width: 200,
       height: 240,
-      defaultColor: 'black'
+      defaultColor: '#444'
     });
   }
 
@@ -31,11 +31,11 @@ class ChordDiagram extends React.Component {
     return (
       <div
         className={`card diagram-card m-4 ${this.state.shadowClass}`}
-        onMouseEnter={this.onHover}
-        onMouseLeave={this.onLeave}
+        // onMouseEnter={this.onHover}
+        // onMouseLeave={this.onLeave}
       >
         <div className='card-body'>
-          <h4 className='text-center'>{this.props.chord.name}</h4>
+          <h5 className='card-title text-center'>{this.props.chord.name}</h5>
           <div ref='diagram' className='diagram' />
         </div>
       </div>

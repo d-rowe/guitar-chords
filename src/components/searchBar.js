@@ -10,7 +10,7 @@ const SearchBar = ({ updateSearch, parsed, inputText }) => {
   };
 
   return (
-    <div className='d-flex justify-content-center my-3'>
+    <div className='d-flex justify-content-center my-2'>
       <div className='d-flex flex-column align-content-center'>
         <input
           type='text'
@@ -19,11 +19,13 @@ const SearchBar = ({ updateSearch, parsed, inputText }) => {
           placeholder='Search chords...'
           onChange={onChange}
         />
-        {parsed === null && inputText !== '' ? (
-          <p className='text-center invalid-text'>
-            Hmm, that doesn't appear to be a chord...
-          </p>
-        ) : null}
+        <p
+          className={`text-center mt-1 invalid-text${
+            parsed === null && inputText !== '' ? '' : ' no-opacity'
+          }`}
+        >
+          Hmm, that doesn't appear to be a chord...
+        </p>
       </div>
     </div>
   );

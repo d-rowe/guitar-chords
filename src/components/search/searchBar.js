@@ -1,6 +1,6 @@
 import React from 'react';
 import { parseChord } from 'chord-symbol';
-import { getSuggestions, renderChord, capitalize } from '../libs/chords';
+import { getSuggestions, renderChord, capitalize } from '../../libs/chords';
 import { connect } from 'react-redux';
 import './style.css';
 
@@ -10,7 +10,7 @@ const SearchBar = ({ updateSearch, parsed, inputText }) => {
   };
 
   return (
-    <div className='d-flex justify-content-center my-2'>
+    <div className='d-flex justify-content-center mt-3'>
       <div className='d-flex flex-column align-content-center'>
         <input
           type='text'

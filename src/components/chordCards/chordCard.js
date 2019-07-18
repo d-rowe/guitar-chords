@@ -1,8 +1,9 @@
 import React from 'react';
 import { draw } from 'vexchords';
+import Positions from './positions';
 import './style.css';
 
-class ChordDiagram extends React.Component {
+class ChordCard extends React.Component {
   constructor(props) {
     super(props);
     this.shadowClasses = ['shadow', 'shadow-lg'];
@@ -37,10 +38,11 @@ class ChordDiagram extends React.Component {
         <div className='card-body'>
           <h5 className='card-title text-center'>{this.props.chord.name}</h5>
           <div ref='diagram' className='diagram' />
+          <Positions />
         </div>
       </div>
     );
   }
 }
 
-export default ChordDiagram;
+export default ChordCard;

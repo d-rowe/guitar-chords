@@ -1,6 +1,6 @@
 import React from 'react';
-import ChordDeck from '../components/chordDeck';
-import SearchBar from '../components/searchBar';
+import ChordDeck from '../components/chordCards/chordDeck';
+import SearchBar from '../components/search/searchBar';
 
 const Main = () => {
   const chords = [
@@ -115,7 +115,7 @@ const Main = () => {
       barres: []
     }
   ];
-  
+
   return (
     <div>
       <SearchBar />

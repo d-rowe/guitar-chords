@@ -1,12 +1,20 @@
 import React from 'react';
 import { parseChord } from 'chord-symbol';
-import { getSuggestions, renderChord, capitalize } from '../../libs/chords';
+import {
+  getSuggestions,
+  renderChord,
+  capitalize,
+  getMatchingChords
+} from '../../libs/chords';
 import { connect } from 'react-redux';
 import './style.css';
 
 const SearchBar = ({ updateSearch, parsed, inputText }) => {
   const onChange = e => {
     updateSearch(capitalize(e.target.value));
+    try {
+      getMatchingChords(parseChord(e.target.value));
+    } catch {}
   };
 
   return (

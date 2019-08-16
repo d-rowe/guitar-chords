@@ -1,11 +1,29 @@
 import { parseChord, chordRendererFactory } from 'chord-symbol';
-import Chords from './chords.json';
+import preformattedChords from './chords.json';
+
+// const chords =
+
+const formatChords = () => {
+  const chordsList = preformattedChords.chords;
+};
+
+export const getMatchingChords = chord => {
+  const keyChords = preformattedChords.chords[chord.normalized.rootNote];
+  const qualityChords = keyChords.filter(keyChord =>
+    keyChord.quality.includes(chord.normalized.quality)
+  );
+
+  const formattedChords = qualityChords.map(qualityChord => {
+    console.log(qualityChord);
+    return { positions: qualityChord.position };
+  });
+};
 
 export const getSuggestions = searchText => {
   const parsedChord = parseChord(searchText);
   try {
     const chordData = parsedChord.normalized;
-    const suggestions = Chords.chords[chordData.rootNote].map(chord => {
+    const suggestions = preformattedChords.chords[chordData.rootNote].map(chord => {
       const parsedChord = parseChord(`${chord.key}${chord.suffix}`);
       let chordData;
       try {

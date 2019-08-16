@@ -1,7 +1,5 @@
 import { parseChord, chordRendererFactory } from 'chord-symbol';
-import preformattedChords from './chords.json';
-
-// const chords =
+import preformattedChords from './chords.json.js.js';
 
 const formatChords = () => {
   const chordsList = preformattedChords.chords;

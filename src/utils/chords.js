@@ -1,44 +1,42 @@
 import { parseChord, chordRendererFactory } from 'chord-symbol';
-import preformattedChords from './chords.json.js.js';
-
-const formatChords = () => {
-  const chordsList = preformattedChords.chords;
-};
+import preformattedChords from './chords.json';
 
 export const getMatchingChords = chord => {
-  const keyChords = preformattedChords.chords[chord.normalized.rootNote];
-  const qualityChords = keyChords.filter(keyChord =>
-    keyChord.quality.includes(chord.normalized.quality)
-  );
-
-  const formattedChords = qualityChords.map(qualityChord => {
-    console.log(qualityChord);
-    return { positions: qualityChord.position };
-  });
+  try {
+    const keyChords = preformattedChords.chords[chord.normalized.rootNote];
+    const qualityChords = keyChords.filter(keyChord =>
+      keyChord.quality.includes(chord.normalized.quality)
+    );
+    return qualityChords;
+  } catch {
+    return [];
+  }
 };
 
 export const getSuggestions = searchText => {
   const parsedChord = parseChord(searchText);
   try {
     const chordData = parsedChord.normalized;
-    const suggestions = preformattedChords.chords[chordData.rootNote].map(chord => {
-      const parsedChord = parseChord(`${chord.key}${chord.suffix}`);
-      let chordData;
-      try {
-        chordData = parsedChord.normalized;
-      } catch {
-        chordData = null;
-      }
+    const suggestions = preformattedChords.chords[chordData.rootNote].map(
+      chord => {
+        const parsedChord = parseChord(`${chord.key}${chord.suffix}`);
+        let chordData;
+        try {
+          chordData = parsedChord.normalized;
+        } catch {
+          chordData = null;
+        }
 
-      return {
-        displayName: chordRendererFactory({ useShortNamings: true })(
-          parsedChord
-        ),
-        key: chord.key,
-        suffix: chord.suffix,
-        chordData: chordData
-      };
-    });
+        return {
+          displayName: chordRendererFactory({ useShortNamings: true })(
+            parsedChord
+          ),
+          key: chord.key,
+          suffix: chord.suffix,
+          chordData: chordData
+        };
+      }
+    );
     const filteredSuggestions = suggestions.filter(
       suggestion => suggestion.displayName !== null
     );

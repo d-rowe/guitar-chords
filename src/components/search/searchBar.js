@@ -5,7 +5,7 @@ import {
   renderChord,
   capitalize,
   getMatchingChords
-} from '../../libs/chords';
+} from '../../utils/chords';
 import { connect } from 'react-redux';
 import './style.css';
 
@@ -13,7 +13,7 @@ const SearchBar = ({ updateSearch, parsed, inputText }) => {
   const onChange = e => {
     updateSearch(capitalize(e.target.value));
     try {
-      getMatchingChords(parseChord(e.target.value));
+      console.log(getMatchingChords(parseChord(e.target.value)));
     } catch {}
   };
 
@@ -39,7 +39,7 @@ const SearchBar = ({ updateSearch, parsed, inputText }) => {
   );
 };
 
-const maptStateToProps = state => {
+const mapStateToProps = state => {
   return { parsed: state.search.parsed, inputText: state.search.inputText };
 };
 
@@ -59,11 +59,15 @@ const mapDispatchToProps = dispatch => {
         type: 'SET_RENDERED_CHORD',
         renderedChord: renderChord(parseChord(inputText))
       });
+      dispatch({
+        type: 'SET_RESULTS',
+        results: getMatchingChords(parseChord(inputText))
+      });
     }
   };
 };
 
 export default connect(
-  maptStateToProps,
+  mapStateToProps,
   mapDispatchToProps
 )(SearchBar);

@@ -12,9 +12,6 @@ import './style.css';
 const SearchBar = ({ updateSearch, parsed, inputText }) => {
   const onChange = e => {
     updateSearch(capitalize(e.target.value));
-    try {
-      console.log(getMatchingChords(parseChord(e.target.value)));
-    } catch {}
   };
 
   return (

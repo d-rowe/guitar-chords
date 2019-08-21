@@ -1,4 +1,5 @@
 import { parseChord, chordRendererFactory } from 'chord-symbol';
+import { formatChordResults } from './format';
 import preformattedChords from './chords.json';
 
 export const getMatchingChords = chord => {
@@ -7,7 +8,7 @@ export const getMatchingChords = chord => {
     const qualityChords = keyChords.filter(keyChord =>
       keyChord.quality.includes(chord.normalized.quality)
     );
-    return qualityChords;
+    return formatChordResults(qualityChords);
   } catch {
     return [];
   }

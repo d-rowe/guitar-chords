@@ -6,7 +6,7 @@ const Main = () => {
   const chords = [
     {
       name: 'C Major',
-      chord: [[1, 0], [2, 1, '1'], [3, 0], [4, 2, 2], [5, 3, 3]],
+      chord: [[1, 0], [2, 1, '1'], [3, 0], [4, 2, 2], [5, 3, 3], [6, 'x']],
       position: 0,
       barres: []
     },

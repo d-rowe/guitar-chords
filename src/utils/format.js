@@ -1,33 +1,17 @@
-export const formatChordResults = chords => {
+export const chordsToVexChords = chords => {
+  let vexChords = [];
   chords.forEach(chord => {
-    let positions = chord.positions;
-    console.log(positionsToVexChords(positions, chord.key, chord.quality));
-    let chordsArr = positions.map(position => {
-      let frets = position.frets;
-
-      // console.log({
-      //   name: `${chord.key} ${chord.quality}`,
-      //   chord: fretsToVexChord(frets)
-      // });
+    let curVexChords = chord.positions.map((position, i) => {
       return {
         name: `${chord.key} ${chord.quality}`,
-        chord: fretsToVexChord(frets)
+        chord: fretsToVexChord(position.frets),
+        position: i,
+        midi: position.midi
       };
     });
-    // console.log(chordsArr);
+    vexChords.push(...curVexChords);
   });
-  return chords;
-};
-
-const positionsToVexChords = (positions, key, quality) => {
-  return positions.map((position, i) => {
-    return {
-      name: `${key} ${quality}`,
-      chord: fretsToVexChord(position.frets),
-      position: i,
-      midi: position.midi
-    };
-  });
+  return vexChords;
 };
 
 const fretsToVexChord = frets => {

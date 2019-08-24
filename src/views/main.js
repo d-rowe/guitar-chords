@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 const Main = ({ results }) => {
   const chordDeck = () => {
-    console.log(results);
     if (results !== []) {
       return <ChordDeck chords={results} />;
     }

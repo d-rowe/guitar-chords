@@ -13,7 +13,7 @@ class ChordCard extends React.Component {
   }
 
   componentDidMount() {
-    draw(this.refs.diagram, this.props.chord, {
+    draw(this.refs.diagram, this.props, {
       width: 200,
       height: 240,
       defaultColor: '#444'
@@ -36,10 +36,11 @@ class ChordCard extends React.Component {
         onMouseLeave={this.onLeave}
       >
         <div className='card-body'>
-          <h5 className='card-title text-center'>{this.props.chord.name}</h5>
+          <h5 className='card-title text-center'>{this.props.name}</h5>
           <div ref='diagram' className='diagram' />
           {/* <Positions /> */}
         </div>
+        <h5 className='text-center'>Variant {this.props.variant}</h5>
       </div>
     );
   }

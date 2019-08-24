@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Positions = () => {
+const Variants = () => {
   return (
     <div className='d-flex justify-content-center'>
       <div className='d-flex flex-column text-center'>
@@ -23,4 +23,4 @@ const Positions = () => {
   );
 };
 
-export default Positions;
+export default Variants;

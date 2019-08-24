@@ -1,6 +1,6 @@
 import React from 'react';
 import { draw } from 'vexchords';
-// import Positions from './positions';
+// import Variants from './variants';
 import './style.css';
 
 class ChordCard extends React.Component {
@@ -35,12 +35,17 @@ class ChordCard extends React.Component {
         onMouseEnter={this.onHover}
         onMouseLeave={this.onLeave}
       >
-        <div className='card-body'>
+        <div className='card-header'>
           <h5 className='card-title text-center'>{this.props.name}</h5>
-          <div ref='diagram' className='diagram' />
-          {/* <Positions /> */}
         </div>
-        <h5 className='text-center'>Variant {this.props.variant}</h5>
+        <div className='card-body'>
+          {/* <h5 className='card-title text-center'>{this.props.name}</h5> */}
+          <div ref='diagram' className='diagram' />
+          {/* <Variants /> */}
+        </div>
+        <div className='card-footer'>
+          <h5 className='text-center'>Variant {this.props.variant}</h5>
+        </div>
       </div>
     );
   }

@@ -13,12 +13,25 @@ class ChordCard extends React.Component {
   }
 
   componentDidMount() {
+    this.vexDraw();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.chord !== this.props.chord) this.vexRefresh();
+  }
+
+  vexDraw = () => {
     draw(this.refs.diagram, this.props, {
       width: 200,
       height: 240,
       defaultColor: '#444'
     });
-  }
+  };
+
+  vexRefresh = () => {
+    this.refs.diagram.firstChild.remove();
+    this.vexDraw();
+  };
 
   onHover = () => {
     this.setState({ shadowClass: this.shadowClasses[1] });

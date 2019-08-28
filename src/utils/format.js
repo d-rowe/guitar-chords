@@ -8,9 +8,10 @@ export const chordsToVexChords = chords => {
         name: chordRendererFactory({ useShortNamings: true })(
           parseChord(`${chord.key}${chord.quality}`)
         ),
-        chord: fretsToVexChord(position.frets),
+        chord: positionToVexChord(position),
         variant: i + 1,
-        midi: position.midi
+        midi: position.midi,
+        position: position.baseFret
       };
     });
     vexChords.push(...curVexChords);
@@ -18,8 +19,9 @@ export const chordsToVexChords = chords => {
   return vexChords;
 };
 
-const fretsToVexChord = frets => {
+const positionToVexChord = position => {
   let chord = [];
+  let frets = position.frets;
   for (let i in frets) {
     let stringId = 6 - i;
     let fret = frets[i];
@@ -27,7 +29,7 @@ const fretsToVexChord = frets => {
     if (fret === -1) fret = 'x';
     let stringData = [stringId, fret];
     if (fret !== 0 && fret !== 'x') {
-      fretCaption = fret;
+      fretCaption = fret + position.baseFret - 1;
       stringData.push(fretCaption);
     }
     chord.push(stringData);

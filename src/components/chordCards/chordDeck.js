@@ -7,6 +7,7 @@ const ChordDeck = ({ chords, variant }) => {
       chord={chord.chord}
       variant={chord.variant}
       name={chord.name}
+      position={chord.position}
       key={index}
     />
   ));

@@ -1,19 +1,15 @@
-import React from 'react';
-import ChordDeck from '../components/chordCards/chordDeck';
-import SearchBar from '../components/search/searchBar';
-import { connect } from 'react-redux';
+import React from "react";
+import Deck from "../components/chord/deck";
+import Bar from "../components/search/bar";
+import { connect } from "react-redux";
 
 const Main = ({ results }) => {
-  const chordDeck = () => {
-    if (results !== []) {
-      return <ChordDeck chords={results} />;
-    }
-  };
+  const deck = results.length > 0 ? <Deck chords={results} /> : null;
 
   return (
     <div>
-      <SearchBar />
-      {chordDeck()}
+      <Bar />
+      {deck}
     </div>
   );
 };

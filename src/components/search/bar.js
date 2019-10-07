@@ -7,9 +7,9 @@ import {
   getMatchingChords
 } from '../../utils/chords';
 import { connect } from 'react-redux';
-import './style.css';
+import '../../style/components/search/bar.css';
 
-const SearchBar = ({ updateSearch, parsed, inputText }) => {
+const Bar = ({ updateSearch, parsed, inputText }) => {
   const onChange = e => {
     try {
       updateSearch(capitalize(e.target.value));
@@ -69,4 +69,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SearchBar);
+)(Bar);

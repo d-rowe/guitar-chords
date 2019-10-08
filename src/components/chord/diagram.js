@@ -15,7 +15,7 @@ class Diagram extends React.Component {
     this.chord = new ChordBox(this.refs.diagram, {
       // Customizations (all optional, defaults shown)
       width: 200, // canvas width
-      height: 200, // canvas height
+      height: 240, // canvas height
       circleRadius: 5, // circle radius (width / 20 by default)
 
       numStrings: 6, // number of strings (e.g., 4 for bass)
@@ -59,7 +59,7 @@ class Diagram extends React.Component {
       // barres: [
       //   { fromString: 6, toString: 1, fret: 1 },
       //   { fromString: 5, toString: 3, fret: 3 }
-      // ],
+      // ],1.25rem
 
       // optional: tuning keys
       // tuning: ["E", "A", "D", "G", "B", "E"]

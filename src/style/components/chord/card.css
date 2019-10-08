@@ -1,13 +1,23 @@
 .diagram-card {
   transition: all 0.15s ease-in-out;
-  border-radius: .75rem;
+  border-radius: 0.75rem;
+}
+
+.diagram-cycle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .chord-footer {
   display: flex;
   justify-content: center;
-  align-content: center;
+  padding: 0.5rem;
   border-radius: 0.75rem;
+}
+
+.diagram-button {
+  border-radius: 5rem;
 }
 
 .chord-name {

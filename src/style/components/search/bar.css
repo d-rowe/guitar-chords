@@ -1,7 +1,8 @@
 .search {
-  width: 15rem;
+  width: 10rem;
   font-size: 1.25rem;
   text-transform: capitalize;
+  text-align: center;
 }
 
 .invalid-text {

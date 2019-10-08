@@ -1,6 +1,6 @@
-import React from "react";
-import Card from "./card";
-import "../../style/components/chord/deck.css";
+import React from 'react';
+import Card from './card';
+import '../../style/components/chord/deck.css';
 
 const Deck = ({ chords }) => {
   const chordCards = chords.map((chord, index) => (

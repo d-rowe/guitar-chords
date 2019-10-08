@@ -17,13 +17,13 @@ const Bar = ({ updateSearch, parsed, inputText }) => {
   };
 
   return (
-    <div className='d-flex justify-content-center mt-3'>
-      <div className='d-flex flex-column align-content-center'>
+    <div className="d-flex justify-content-center mt-3">
+      <div className="d-flex flex-column align-content-center">
         <input
-          type='text'
-          className='form-control search'
-          aria-label='Chord'
-          placeholder='Search chords...'
+          type="text"
+          className="form-control search"
+          aria-label="Chord"
+          placeholder="Search chords..."
           onChange={onChange}
         />
         <p

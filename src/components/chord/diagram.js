@@ -1,14 +1,14 @@
-import React from "react";
-import { ChordBox } from "vexchords";
-import "../../style/components/chord/diagram.css";
+import React from 'react';
+import { ChordBox } from 'vexchords';
+import '../../style/components/chord/diagram.css';
 
-const COLOR = "#666";
-const BG_COLOR = "#FFF";
-const STROKE_COLOR = "#666";
-const TEXT_COLOR = "#666";
-const STRING_COLOR = "#666";
-const FRET_COLOR = "#666";
-const LABEL_COLOR = "#666";
+const COLOR = '#666';
+const BG_COLOR = '#FFF';
+const STROKE_COLOR = '#666';
+const TEXT_COLOR = '#666';
+const STRING_COLOR = '#666';
+const FRET_COLOR = '#666';
+const LABEL_COLOR = '#666';
 
 class Diagram extends React.Component {
   componentDidMount() {

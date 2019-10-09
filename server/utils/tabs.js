@@ -6,7 +6,7 @@ const chordToTabs = chord => {
   const renderedChord = chordRendererFactory({ useShortNamings: true })(
     parsedChord
   );
-  return guitarChords[renderedChord];
+  return { [renderedChord]: guitarChords[renderedChord] };
 };
 
 export default chordToTabs;

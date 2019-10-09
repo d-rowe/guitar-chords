@@ -4,7 +4,10 @@ const app = express();
 const port = 5000;
 
 app.get('/tabs', (req, res) => {
-  res.json(chordToTabs('C'));
+  const chord = req.query.chord;
+  const response = chordToTabs(chord);
+  console.log(`Request for ${chord}`);
+  res.json(response);
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port);

@@ -4,8 +4,7 @@ import Bar from '../components/search/bar';
 import { connect } from 'react-redux';
 
 const Main = ({ results }) => {
-  const deck = results.length > 0 ? <Deck chords={results} /> : null;
-
+  const deck = Object.keys(results)[0] !== 'null' ? <Deck chords={results} /> : null;
   return (
     <div>
       <Bar />

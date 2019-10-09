@@ -14,7 +14,7 @@ for (let k in originalChords) {
     const renderedChord = chordRendererFactory({ useShortNamings: true })(
       parsedChord
     );
-    fChords[renderedChord] = { [renderedChord]: positionsToVex(positions) };
+    fChords[renderedChord] = positionsToVex(positions);
   });
 }
 

@@ -1,19 +1,18 @@
 import React from 'react';
-import { parseChord } from 'chord-symbol';
-import {
-  getSuggestions,
-  renderChord,
-  capitalize,
-  getMatchingChords
-} from '../../utils/chords';
+import { capitalize } from '../../utils/chords';
 import { connect } from 'react-redux';
 import '../../style/components/search/bar.css';
 
-const Bar = ({ updateSearch, parsed, inputText }) => {
+const Bar = ({ updateSearch }) => {
   const onChange = e => {
-    try {
-      updateSearch(capitalize(e.target.value));
-    } catch {}
+    fetch(`/tabs?chord=${capitalize(e.target.value)}`)
+      .then(res => {
+        return res.json();
+      })
+      .then(chord => {
+        console.log(chord);
+        updateSearch(chord);
+      });
   };
 
   return (
@@ -26,47 +25,23 @@ const Bar = ({ updateSearch, parsed, inputText }) => {
           placeholder="Search chords..."
           onChange={onChange}
         />
-        <p
-          className={`text-center mt-1 invalid-text${
-            parsed === null && inputText !== '' ? '' : ' no-opacity'
-          }`}
-        >
-          Hmm, that doesn't appear to be a chord...
-        </p>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = state => {
-  return { parsed: state.search.parsed, inputText: state.search.inputText };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
     updateSearch: inputText => {
-      dispatch({ type: 'SET_SEARCH_INPUT_TEXT', inputText: inputText });
-      dispatch({
-        type: 'SET_SUGGESTIONS',
-        suggestions: getSuggestions(inputText)
-      });
-      dispatch({
-        type: 'SET_PARSED_CHORD',
-        parsedChord: parseChord(inputText)
-      });
-      dispatch({
-        type: 'SET_RENDERED_CHORD',
-        renderedChord: renderChord(parseChord(inputText))
-      });
       dispatch({
         type: 'SET_RESULTS',
-        results: getMatchingChords(parseChord(inputText))
+        results: inputText
       });
     }
   };
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Bar);

@@ -3,15 +3,20 @@
   border-radius: 0.75rem;
 }
 
+.chord-card-body {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .diagram-cycle {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.chord-footer {
+.chord-name-card {
   display: flex;
-  justify-content: center;
+  align-items: center;
   padding: 0.5rem;
   border-radius: 0.75rem;
 }

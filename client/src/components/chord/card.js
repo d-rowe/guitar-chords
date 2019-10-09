@@ -19,7 +19,7 @@ class Card extends React.Component {
             >
               <FontAwesomeIcon icon={faChevronLeft} size="lg" />
             </button>
-            <Diagram chord={this.props.chord} position={this.props.position} />
+            <Diagram frets={this.props.frets} position={this.props.position} />
             <button
               type="button"
               className="btn btn-outline-primary diagram-button"
@@ -28,7 +28,7 @@ class Card extends React.Component {
             </button>
           </div>
         </div>
-        <div className="card-footer chord-footer shadow bg-primary text-white shadow-sm">
+        <div className="card chord-name-card bg-primary text-white">
           <h5 className="chord-name">{this.props.name}</h5>
         </div>
       </div>

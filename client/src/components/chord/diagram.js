@@ -12,11 +12,24 @@ const LABEL_COLOR = '#666';
 
 class Diagram extends React.Component {
   componentDidMount() {
+    this.vexDraw();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {  // Rerender if props change
+      this.vexReRender();
+    }
+  }
+
+  vexReRender = () => {
+    this.refs.diagram.firstChild.remove();
+    this.vexDraw();
+  };
+
+  vexDraw = () => {
     this.chord = new ChordBox(this.refs.diagram, {
-      // Customizations (all optional, defaults shown)
       width: 200, // canvas width
       height: 240, // canvas height
-      circleRadius: 5, // circle radius (width / 20 by default)
 
       numStrings: 6, // number of strings (e.g., 4 for bass)
       numFrets: 5, // number of frets (e.g., 7 for stretch chords)
@@ -34,35 +47,12 @@ class Diagram extends React.Component {
       stringWidth: 1 // string width
     });
 
-    this.vexDraw();
-  }
-
-  componentDidUpdate() {
-    // TODO: Check if props changed, if so vexReRender
-    // this.vexReRender();
-  }
-
-  vexReRender = () => {
-    this.refs.diagram.firstChild.remove();
-    this.vexDraw();
-  };
-
-  vexDraw = () => {
     this.chord.draw({
       // array of [string, fret, label (optional)]
-      chord: this.props.chord,
+      chord: this.props.frets,
 
       // optional: position marker
-      position: this.props.position // start render at fret 5
-
-      // optional: barres for barre chords
-      // barres: [
-      //   { fromString: 6, toString: 1, fret: 1 },
-      //   { fromString: 5, toString: 3, fret: 3 }
-      // ],1.25rem
-
-      // optional: tuning keys
-      // tuning: ["E", "A", "D", "G", "B", "E"]
+      position: this.props.baseFret
     });
   };
 

@@ -1,0 +1,12 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "main": "app.js",
+  "author": "Daniel Rowe",
+  "license": "MIT",
+  "dependencies": {
+    "chord-symbol": "^0.4.2",
+    "esm": "^3.2.25",
+    "express": "^4.17.1"
+  }
+}

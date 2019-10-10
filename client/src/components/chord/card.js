@@ -59,6 +59,7 @@ class Card extends React.Component {
             <Diagram
               frets={this.props.chord[this.state.variant].frets}
               baseFret={this.props.chord[this.state.variant].baseFret}
+              barres={this.props.chord[this.state.variant].barres}
             />
             {this.arrowButton('right')}
           </div>

@@ -2,7 +2,7 @@
 
 Explore and learn new guitar chords
 
-![](https://media.giphy.com/media/MDap89KqUNcJpnGliV/giphy.gif)
+![](https://media.giphy.com/media/JRV3vEPvlP3nugKG0r/giphy.gif)
 
 ## Future features
 

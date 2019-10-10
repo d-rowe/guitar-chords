@@ -16,7 +16,8 @@ class Diagram extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps !== this.props) {  // Rerender if props change
+    if (prevProps !== this.props) {
+      // Rerender if props change
       this.vexReRender();
     }
   }
@@ -50,9 +51,9 @@ class Diagram extends React.Component {
     this.chord.draw({
       // array of [string, fret, label (optional)]
       chord: this.props.frets,
-
       // optional: position marker
-      position: this.props.baseFret
+      position: this.props.baseFret,
+      // barres: this.props.barres
     });
   };
 

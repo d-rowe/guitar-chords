@@ -5,7 +5,8 @@ Explore and learn new guitar chords
 ![](https://media.giphy.com/media/MDap89KqUNcJpnGliV/giphy.gif)
 
 ## Future features
-- [ ] Card pagination with different positions
+
+- [x] Card pagination with different positions
 
 - [ ] Fingering numbers
 
@@ -13,4 +14,4 @@ Explore and learn new guitar chords
 
 - [ ] Related chords suggestions
 
-  
+- [ ] Refactor card

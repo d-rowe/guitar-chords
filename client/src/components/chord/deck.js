@@ -6,16 +6,7 @@ const Deck = ({ chords }) => {
   const chordNames = Object.keys(chords);
   const cards = chordNames.map((key, i) => {
     const chord = chords[key];
-    const { variant, baseFret, frets } = chord[0];
-    return (
-      <Card
-        frets={frets}
-        variant={variant}
-        name={key}
-        baseFret={baseFret}
-        key={i}
-      />
-    );
+    return <Card chord={chord} variant={1} name={key} key={i} />;
   });
 
   return <div className="cards">{cards}</div>;

@@ -12,7 +12,7 @@ const Deck = ({ chords }) => {
         frets={frets}
         variant={variant}
         name={key}
-        position={baseFret}
+        baseFret={baseFret}
         key={i}
       />
     );

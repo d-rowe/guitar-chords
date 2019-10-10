@@ -19,7 +19,7 @@ class Card extends React.Component {
             >
               <FontAwesomeIcon icon={faChevronLeft} size="lg" />
             </button>
-            <Diagram frets={this.props.frets} position={this.props.position} />
+            <Diagram frets={this.props.frets} baseFret={this.props.baseFret} />
             <button
               type="button"
               className="btn btn-outline-primary diagram-button"

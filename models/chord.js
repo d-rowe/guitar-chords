@@ -15,6 +15,6 @@ const chordSchema = new Schema(
   { timestamps: true }
 );
 
-const Chord = mongoose.model('Chord', chordSchema);
+const Chord = mongoose.model('guitar', chordSchema, 'guitar');
 
-module.exports = Chord;
+module.exports = Chord; 

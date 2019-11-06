@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "main": "app.js",
+  "author": "Daniel Rowe",
+  "license": "MIT",
+  "dependencies": {
+    "chord-symbol": "^0.4.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.8"
+  },
+  "scripts": {
+    "start": "npm run server & npm run client",
+    "server": "nodemon server.js",
+    "client": "cd ./client && npm run start",
+    "install-client": "cd ./client && npm install",
+    "install-server": "npm install"
+  }
+}

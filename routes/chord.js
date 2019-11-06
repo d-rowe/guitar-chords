@@ -1,19 +1,8 @@
 const router = require('express').Router();
-let Chord = require('../models/chord');
+let guitarRouter = require('./chords/guitar');
+let ukuleleRouter = require('./chords/ukulele');
 
-router.route('/').get((req, res) => {
-  Chord.find()
-    .then(chords => res.json(chords))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
-router.route('/add').post((req, res) => {
-  const chord = req.body;
-  const newChord = new Chord(chord);
-  newChord
-    .save()
-    .then(() => res.json('Chord added'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+router.use('/guitar', guitarRouter);
+router.use('/ukulele', ukuleleRouter);
 
 module.exports = router;

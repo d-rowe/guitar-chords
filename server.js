@@ -20,9 +20,9 @@ mongoose
   .then(() => console.log('Connected to chord database'))
   .catch(err => console.log(err));
 
-const chordsRouter = require('./routes/chord');
+const chordRouter = require('./routes/chords');
 
-app.use('/chords', chordsRouter);
+app.use('/chords', chordRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);

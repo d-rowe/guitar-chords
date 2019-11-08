@@ -10,6 +10,8 @@ Explore and learn new guitar chords
 
 - [x] API with MongoDB
 
+- [ ] API pagination
+
 - [ ] Client refactor
 
 - [ ] Fingering numbers

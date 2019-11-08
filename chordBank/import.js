@@ -4,10 +4,10 @@ const INSTRUMENT = args[0];
 const DB = 'chords';
 
 require('dotenv').config();
-const { USERNAME, PASSWORD, HOST } = process.env;
+const { MONGO_USERNAME, MONGO_PASSWORD, MONGO_HOST } = process.env;
 
 exec(
-  `mongoimport --host ${HOST} --ssl --username ${USERNAME} --password ${PASSWORD} --authenticationDatabase admin --db ${DB} --collection ${INSTRUMENT} --type JSON --jsonArray --file ./formatted/${INSTRUMENT}.json`,
+  `mongoimport --host ${MONGO_HOST} --ssl --username ${MONGO_USERNAME} --password ${MONGO_PASSWORD} --authenticationDatabase admin --db ${DB} --collection ${INSTRUMENT} --type JSON --jsonArray --file ./formatted/${INSTRUMENT}.json`,
   (err, stdout, stderr) => {
     if (err) {
       console.log(err);

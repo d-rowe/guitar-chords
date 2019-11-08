@@ -7,9 +7,9 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:chordName').get((req, res) => {
-  const { chordName } = req.params;
-  UkuleleChord.find({ name: chordName })
+router.route('/:name').get((req, res) => {
+  const { name } = req.params;
+  UkuleleChord.find({ name })
     .then(chords => res.json(chords))
     .catch(err => res.status(400).json('Error: ' + err));
 });

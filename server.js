@@ -20,8 +20,8 @@ mongoose
   .then(() => console.log('Connected to chord database'))
   .catch(err => console.log(err));
 
+// Route chords
 const chordRouter = require('./routes/chords');
-
 app.use('/chords', chordRouter);
 
 app.listen(port, () => {

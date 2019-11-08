@@ -1,6 +1,6 @@
 const { exec } = require('child_process');
-
-const INSTRUMENT = 'guitar';
+const args = process.argv.slice(2);
+const INSTRUMENT = args[0];
 const DB = 'chords';
 
 require('dotenv').config();

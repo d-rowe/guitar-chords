@@ -1,15 +1,20 @@
 import React from 'react';
-import Deck from '../components/chord/deck';
-import Bar from '../components/search/bar';
+import SearchBar from '../components/search/searchbar';
+import { Container, Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import './main.sass';
 
 const Main = ({ results }) => {
-  const deck = Object.keys(results)[0] !== 'null' ? <Deck chords={results} /> : null;
   return (
-    <div>
-      <Bar />
-      {deck}
-    </div>
+    <Container>
+      <Grid>
+        <Grid.Column>
+          <div className='searchbar-container'>
+            <SearchBar />
+          </div>
+        </Grid.Column>
+      </Grid>
+    </Container>
   );
 };
 

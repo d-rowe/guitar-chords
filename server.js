@@ -10,6 +10,10 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+if (process.env.NODE_ENV === 'PROD') {
+  app.use(express.static('./client/build')); //Serves resources from public folder
+}
+
 const uri = process.env.ATLAS_URI;
 mongoose
   .connect(uri, {

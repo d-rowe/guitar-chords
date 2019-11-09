@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 
 require('dotenv').config();
 
@@ -11,7 +12,8 @@ app.use(cors());
 app.use(express.json());
 
 if (process.env.NODE_ENV === 'PROD') {
-  app.use(express.static('./client/build')); //Serves resources from public folder
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  // app.use(express.static('./client/build')); //Serves resources from public folder
 }
 
 const uri = process.env.ATLAS_URI;

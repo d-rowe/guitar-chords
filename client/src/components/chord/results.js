@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import anime from 'animejs';
 import Diagram from './diagram';
 import './results.sass';
 
@@ -23,21 +24,31 @@ class Results extends React.Component {
 
     fetch(`/chords/${instrument}/name/${search}`)
       .then(res => {
-        this.setState({ loading: false });
         return res.json();
       })
-      .then(chord => {
-        this.setState({
-          results: Array.from(chord).map((r, i) => (
-            <Diagram chordDat={r.vex} key={i} />
-          ))
-        });
-      })
+      .then(chords => this.setResults(chords))
       .catch(err => {
         this.setState({
-          results: []
+          results: <p>Error, try again...</p>,
+          loading: false
         });
       });
+  };
+
+  setResults = chords => {
+    this.setState({
+      results: Array.from(chords).map((r, i) => (
+        <Diagram chordDat={r.vex} key={i} />
+      )),
+      loading: false
+    });
+    anime({
+      targets: '.diagram',
+      opacity: [0, 1],
+      delay: anime.stagger(50),
+      duration: 100,
+      easing: 'linear'
+    });
   };
 
   render() {

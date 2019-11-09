@@ -9,10 +9,16 @@ const TEXT_COLOR = '#666';
 const STRING_COLOR = '#666';
 const FRET_COLOR = '#666';
 const LABEL_COLOR = '#666';
+const RENDER_WIDTH = 200;
+const RENDER_HEIGHT = 240;
 
 class Diagram extends React.Component {
   componentDidMount() {
     this.vexDraw();
+    this.refs.diagram.children[0].setAttribute(
+      'viewBox',
+      `0 0 ${RENDER_WIDTH} ${RENDER_HEIGHT}`
+    );
   }
 
   componentDidUpdate(prevProps) {
@@ -30,8 +36,8 @@ class Diagram extends React.Component {
   vexDraw = () => {
     const { chordDat } = this.props;
     this.chord = new ChordBox(this.refs.diagram, {
-      width: 200, // canvas width
-      height: 240, // canvas height
+      width: RENDER_WIDTH,
+      height: RENDER_HEIGHT,
 
       numStrings: chordDat.chord.length, // number of strings (e.g., 4 for bass)
       numFrets: 5, // number of frets (e.g., 7 for stretch chords)

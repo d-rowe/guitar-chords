@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { Search, Menu, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import allChords from './allChords';
-import './searchbar.sass';
+import './menubar.sass';
 
 const suggestionsNum = 5;
 const initialState = { isLoading: false, results: [], value: '' };
@@ -11,7 +11,7 @@ const initialState = { isLoading: false, results: [], value: '' };
 const source = allChords();
 
 class SearchBar extends React.Component {
-  state = { ...initialState, instrument: 'guitar' };
+  state = { ...initialState, instrument: 'guitar', search: '' };
 
   handleInstrumentChange = (e, data) => {
     this.props.setInstrument(data.value);
@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
 
   handleResultSelect = (e, { result }) => {
     const searchText = result.title;
-    this.setState({ value: searchText });
+    this.setState({ value: searchText, search: searchText });
     this.props.setSearch(searchText);
   };
 
@@ -40,8 +40,10 @@ class SearchBar extends React.Component {
   };
 
   setInstrument = instrument => {
-    this.props.setInstrument(instrument);
     this.setState({ instrument });
+    if (this.state.search !== '') {
+      this.props.setInstrument(instrument);
+    }
   };
 
   render() {
@@ -49,8 +51,8 @@ class SearchBar extends React.Component {
 
     return (
       <Menu attached='top' inverted>
-        <div className='searchbar-container'>
-          <div className='searchbar'>
+        <div className='menubar-tools-container'>
+          <div className='chord-search'>
             <Search
               loading={isLoading}
               onResultSelect={this.handleResultSelect}

@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { TrinityRingsSpinner } from 'react-epic-spinners'
 import anime from 'animejs';
-import Diagram from './diagram';
+import Diagram from '../diagram/diagram';
 import './results.sass';
 
 class Results extends React.Component {
@@ -42,12 +41,14 @@ class Results extends React.Component {
       )),
       loading: false
     });
+    // Animate cards entering
     anime({
       targets: '.diagram',
       opacity: [0, 1],
+      translateX: [-100, 0],
       delay: anime.stagger(50),
-      duration: 100,
-      easing: 'linear'
+      duration: 250,
+      easing: 'easeOutSine'
     });
   };
 
@@ -56,7 +57,8 @@ class Results extends React.Component {
       return (
         <div className='loading-container'>
           <div className='loading-box'>
-            <FontAwesomeIcon icon={faSpinner} size='4x' spin />
+            <TrinityRingsSpinner color='#203A43' />
+            <h4>Gathering chords...</h4>
           </div>
         </div>
       );

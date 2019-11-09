@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchBar from '../components/search/searchbar';
-import Results from '../components/chord/results';
+import MenuBar from '../components/search/menubar';
+import Results from '../components/results/results';
 import { Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import './main.sass';
@@ -9,7 +9,7 @@ const Main = ({ results }) => {
   return (
     <Grid>
       <Grid.Column>
-        <SearchBar />
+        <MenuBar />
         <Results />
       </Grid.Column>
     </Grid>

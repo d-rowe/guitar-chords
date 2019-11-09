@@ -1,8 +1,14 @@
 import React from 'react';
 import _ from 'lodash';
-import { Search } from 'semantic-ui-react';
+import { Search, Select } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import allChords from './allChords';
+import './searchbar.sass';
+
+const instrumentOptions = [
+  { key: 'guitar', value: 'guitar', text: 'Guitar' },
+  { key: 'ukulele', value: 'ukulele', text: 'Ukulele' }
+];
 
 const suggestionsNum = 5;
 const initialState = { isLoading: false, results: [], value: '' };
@@ -11,10 +17,15 @@ const source = allChords();
 
 class SearchBar extends React.Component {
   state = initialState;
+
+  handleInstrumentChange = (e, data) => {
+    this.props.setInstrument(data.value);
+  };
+
   handleResultSelect = (e, { result }) => {
     const searchText = result.title;
     this.setState({ value: searchText });
-    this.props.updateSearch(searchText);
+    this.props.setSearch(searchText);
   };
 
   handleSearchChange = (e, { value }) => {
@@ -37,26 +48,45 @@ class SearchBar extends React.Component {
     const { isLoading, value, results } = this.state;
 
     return (
-      <Search
-        loading={isLoading}
-        onResultSelect={this.handleResultSelect}
-        onSearchChange={_.debounce(this.handleSearchChange, 500, {
-          leading: true
-        })}
-        results={results}
-        value={value}
-        {...this.props}
-      />
+      <div className='searchbar-container'>
+        <div className='searchbar'>
+          <Search
+            loading={isLoading}
+            onResultSelect={this.handleResultSelect}
+            onSearchChange={_.debounce(this.handleSearchChange, 500, {
+              leading: true
+            })}
+            results={results}
+            value={value}
+            placeholder='Chord'
+            {...this.props}
+          />
+        </div>
+        <div className='instrument-select'>
+          <Select
+            defaultValue={'guitar'}
+            options={instrumentOptions}
+            className='instrument-select'
+            onChange={this.handleInstrumentChange}
+          />
+        </div>
+      </div>
     );
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateSearch: inputText => {
+    setSearch: inputText => {
       dispatch({
         type: 'SET_SEARCH',
         search: inputText
+      });
+    },
+    setInstrument: instrument => {
+      dispatch({
+        type: 'SET_INSTRUMENT',
+        instrument
       });
     }
   };

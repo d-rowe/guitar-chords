@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChordBox } from 'vexchords';
-import '../../style/components/chord/diagram.css';
+import './diagram.sass';
 
 const COLOR = '#666';
 const BG_COLOR = '#FFF';
@@ -28,11 +28,12 @@ class Diagram extends React.Component {
   };
 
   vexDraw = () => {
+    const { chordDat } = this.props;
     this.chord = new ChordBox(this.refs.diagram, {
       width: 200, // canvas width
       height: 240, // canvas height
 
-      numStrings: 6, // number of strings (e.g., 4 for bass)
+      numStrings: chordDat.chord.length, // number of strings (e.g., 4 for bass)
       numFrets: 5, // number of frets (e.g., 7 for stretch chords)
       showTuning: true, // show tuning keys
 
@@ -48,17 +49,11 @@ class Diagram extends React.Component {
       stringWidth: 1 // string width
     });
 
-    this.chord.draw({
-      // array of [string, fret, label (optional)]
-      chord: this.props.frets,
-      // optional: position marker
-      position: this.props.baseFret,
-      // barres: this.props.barres
-    });
+    this.chord.draw(chordDat);
   };
 
   render() {
-    return <div ref="diagram" className="diagram" />;
+    return <div ref='diagram' className='diagram' />;
   }
 }
 

@@ -47,7 +47,7 @@ class Results extends React.Component {
       opacity: [0, 1],
       scale: [0, 1],
       translateX: [-200, 0],
-      delay: anime.stagger(50),
+      delay: anime.stagger(30),
       duration: 250,
       easing: 'easeOutSine'
     });

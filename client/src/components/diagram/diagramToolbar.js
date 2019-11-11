@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon } from 'semantic-ui-react';
+import { Button, Icon } from 'antd';
 import { playChord } from '../../utils/playback';
 import './diagramToolbar.sass';
 
@@ -7,12 +7,12 @@ const DiagramToolbar = ({ midi }) => {
   return (
     <div className='diagram-toolbar'>
       <Button
-        icon
-        className='play-button'
+        shape='circle'
+        icon='sound'
+        theme='twoTone'
+        size='large'
         onClick={() => playChord(midi, 'acoustic guitar', 1, 0.25)}
-      >
-        <Icon name='play' />
-      </Button>
+      />
     </div>
   );
 };

@@ -13,7 +13,9 @@ class Results extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
-      this.update();
+      if (this.props.search !== '') {
+        this.update();
+      }
     }
   }
 

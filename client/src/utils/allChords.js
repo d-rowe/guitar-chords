@@ -1,5 +1,5 @@
-const keys = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B'];
-const suffixes = [
+export const keys = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B'];
+export const suffixes = [
   'major',
   'minor',
   'dim',
@@ -46,7 +46,7 @@ const get = () => {
   let allChords = [];
   keys.forEach(key => {
     suffixes.forEach(suffix => {
-      allChords.push({ title: `${key}${suffix}` });
+      allChords.push(`${key}${suffix}`);
     });
   });
   return allChords;

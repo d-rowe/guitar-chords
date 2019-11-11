@@ -50,7 +50,7 @@ class SearchBar extends React.Component {
     const { isLoading, value, results } = this.state;
 
     return (
-      <Menu attached='top' inverted>
+      <Menu attached='top' >
         <div className='menubar-tools-container'>
           <div className='chord-search'>
             <Search

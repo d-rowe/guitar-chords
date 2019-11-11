@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { TrinityRingsSpinner } from 'react-epic-spinners'
+import { TrinityRingsSpinner } from 'react-epic-spinners';
 import anime from 'animejs';
-import Diagram from '../diagram/diagram';
+import DiagramCard from '../diagram/diagramCard';
 import './results.sass';
 
 class Results extends React.Component {
@@ -36,16 +36,17 @@ class Results extends React.Component {
 
   setResults = chords => {
     this.setState({
-      results: Array.from(chords).map((r, i) => (
-        <Diagram chordDat={r.vex} key={i} />
+      results: Array.from(chords).map((chordDat, i) => (
+        <DiagramCard chordDat={chordDat} key={i} />
       )),
       loading: false
     });
     // Animate cards entering
     anime({
-      targets: '.diagram',
+      targets: '.diagram-card',
       opacity: [0, 1],
-      translateX: [-100, 0],
+      scale: [0, 1],
+      translateX: [-200, 0],
       delay: anime.stagger(50),
       duration: 250,
       easing: 'easeOutSine'

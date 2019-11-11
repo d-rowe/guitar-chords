@@ -6,7 +6,7 @@ import './diagramCard.sass';
 const DiagramCard = ({ chordDat }) => (
   <div className='diagram-card'>
     <Diagram vex={chordDat.vex} />
-    <DiagramToolbar />
+    <DiagramToolbar midi={chordDat.midi} />
   </div>
 );
 

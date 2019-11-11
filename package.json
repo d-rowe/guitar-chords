@@ -10,14 +10,14 @@
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "mongoose": "^5.7.8"
+    "mongoose": "^5.7.8",
+    "soundfont-player": "^0.11.0"
   },
   "scripts": {
     "start": "node server.js",
     "dev": "npm run server & npm run client",
     "server": "nodemon server.js",
     "build": "cd ./client && npm run build",
-    "install": "npm run install-server && npm run install-client",
     "client": "cd ./client && npm run start",
     "install-client": "cd ./client && npm install",
     "install-server": "npm install"

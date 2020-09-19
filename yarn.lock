@@ -1730,10 +1730,10 @@ sliced@1.0.1:
   resolved "https://registry.yarnpkg.com/sliced/-/sliced-1.0.1.tgz#0b3a662b5d04c3177b1926bea82b03f837a2ef41"
   integrity sha1-CzpmK10Ewxd7GSa+qCsD+Dei70E=
 
-soundfont-player@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/soundfont-player/-/soundfont-player-0.11.0.tgz#1bc9e25248ef6257efb96ef812db8d7ae3b1c544"
-  integrity sha512-MkXPSwILFMNHYFhZW+8VBZbvjGG2rAB/EqpUUJqjhH7uNqOnlZyX3dzhk9ABWgyCwrA3PKFea90Qg6nuaniIpQ==
+soundfont-player@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/soundfont-player/-/soundfont-player-0.12.0.tgz#2b26149f28aba471d2285d3df9a2e1e5793ceaf1"
+  integrity sha512-8BJIsAt7h1PK3thSZDgF6zecgGhYkK74JnZO8WRZi3h34qG6H/DYlnv7cpRvL7Q9C8N6qld4Qwj7nJsX1gYjEA==
   dependencies:
     audio-loader "^0.5.0"
     note-parser "^2.0.0"

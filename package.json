@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "antd": "^3.25.1",
-    "chord-symbol": "^0.4.2",
+    "chord-symbol": "^2.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",

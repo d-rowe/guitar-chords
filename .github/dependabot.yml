@@ -1,0 +1,43 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "13:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: mongoose
+    versions:
+    - 5.11.13
+    - 5.11.14
+    - 5.11.15
+    - 5.11.16
+    - 5.11.17
+    - 5.11.18
+    - 5.11.19
+    - 5.12.0
+    - 5.12.1
+    - 5.12.2
+    - 5.12.3
+    - 5.12.4
+    - 5.12.5
+  - dependency-name: antd
+    versions:
+    - 4.11.2
+    - 4.12.1
+    - 4.12.2
+    - 4.12.3
+    - 4.13.0
+    - 4.13.1
+    - 4.14.0
+    - 4.14.1
+    - 4.15.0
+    - 4.15.1
+    - 4.15.2
+  - dependency-name: less
+    versions:
+    - 4.1.0
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
